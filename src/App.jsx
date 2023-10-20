@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 
 const tempMovieData = [
@@ -71,7 +72,7 @@ export default function App() {
         <input
           className="search"
           type="text"
-          placeholder="Search movies..."
+          placeholder="Search movies here..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
