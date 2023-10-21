@@ -51,12 +51,11 @@ const tempWatchedData = [
 ];
 
 export default function App() {
-  const [query, setQuery] = useState("");
   const [movies, setMovies] = useState(tempMovieData);
 
   return (
     <>
-      <NavBar query={query} movies={movies} />
+      <NavBar movies={movies} />
       <main className="main">
         <MoviesList movies={movies} />
         <WatchedMovies tempWatchedData={tempWatchedData} />
