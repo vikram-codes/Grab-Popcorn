@@ -1,4 +1,4 @@
-function NavBar(props) {
+function NavBar({ query, movies }) {
   return (
     <>
       <nav className="nav-bar">
@@ -10,11 +10,11 @@ function NavBar(props) {
           className="search"
           type="text"
           placeholder="Search movies here..."
-          value={props.query}
+          value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
         <p className="num-results">
-          Found <strong>{props.movies.length}</strong> results
+          Found <strong>{movies.length}</strong> results
         </p>
       </nav>
     </>

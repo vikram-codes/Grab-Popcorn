@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function MoviesList(props) {
+function MoviesList({ movies }) {
   const [isOpen1, setIsOpen1] = useState(true);
 
   return (
@@ -14,7 +14,7 @@ function MoviesList(props) {
         </button>
         {isOpen1 && (
           <ul className="list">
-            {props.movies?.map((movie) => (
+            {movies?.map((movie) => (
               <li key={movie.imdbID}>
                 <img src={movie.Poster} alt={`${movie.Title} poster`} />
                 <h3>{movie.Title}</h3>
