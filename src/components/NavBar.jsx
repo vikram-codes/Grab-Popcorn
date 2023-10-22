@@ -47,6 +47,7 @@ function NumResults({ tempMovieData }) {
       </p>
     </>
   );
+  console.log("hehe");
 }
 
 export default NavBar;
