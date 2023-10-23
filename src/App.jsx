@@ -63,16 +63,15 @@ export default function App() {
 
   return (
     <>
-      <NavBar movies={movies}>
-        <GrabPopcornLogo />
+      <NavBar>
         <Search />
         <NumResults movies={movies} />
       </NavBar>
       <main className="main">
-        <ListBox movies={movies}>
+        <ListBox>
           <MovieList movies={movies} />
         </ListBox>
-        <WatchedData watched={watched}>
+        <WatchedData>
           <WatchedSummary watched={watched} />
           <WatchedMoviesList watched={watched} />
         </WatchedData>

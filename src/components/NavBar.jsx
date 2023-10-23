@@ -3,7 +3,10 @@ import { useState } from "react";
 function NavBar({ children }) {
   return (
     <>
-      <nav className="nav-bar">{children}</nav>
+      <nav className="nav-bar">
+        <GrabPopcornLogo />
+        {children}
+      </nav>
     </>
   );
 }
