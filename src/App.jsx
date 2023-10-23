@@ -4,11 +4,8 @@ import NavBar, {
   NumResults,
   Search,
 } from "./components/NavBar";
-import ListBox, { MovieList } from "./components/ListBox";
-import WatchedData, {
-  WatchedSummary,
-  WatchedMoviesList,
-} from "./components/WatchedData";
+import Box, { MovieList } from "./components/Box";
+import { WatchedSummary, WatchedMoviesList } from "./components/WatchedData";
 
 const tempMovieData = [
   {
@@ -67,15 +64,15 @@ export default function App() {
         <Search />
         <NumResults movies={movies} />
       </NavBar>
-      <main className="main">
-        <ListBox>
+      <div className="main">
+        <Box>
           <MovieList movies={movies} />
-        </ListBox>
-        <WatchedData>
+        </Box>
+        <Box>
           <WatchedSummary watched={watched} />
           <WatchedMoviesList watched={watched} />
-        </WatchedData>
-      </main>
+        </Box>
+      </div>
     </>
   );
 }

@@ -3,23 +3,23 @@ import { useState } from "react";
 const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
-function WatchedData({ children }) {
-  const [isOpen2, setIsOpen2] = useState(true);
+// function WatchedData({ children }) {
+//   const [isOpen2, setIsOpen2] = useState(true);
 
-  return (
-    <>
-      <div className="box">
-        <button
-          className="btn-toggle"
-          onClick={() => setIsOpen2((open) => !open)}
-        >
-          {isOpen2 ? "–" : "+"}
-        </button>
-        {isOpen2 && <>{children}</>}
-      </div>
-    </>
-  );
-}
+//   return (
+//     <>
+//       <div className="box">
+//         <button
+//           className="btn-toggle"
+//           onClick={() => setIsOpen2((open) => !open)}
+//         >
+//           {isOpen2 ? "–" : "+"}
+//         </button>
+//         {isOpen2 && children}
+//       </div>
+//     </>
+//   );
+// }
 
 export function WatchedSummary({ watched }) {
   const avgImdbRating = average(watched.map((movie) => movie.imdbRating));
@@ -89,4 +89,4 @@ function WatchedMovie({ movie }) {
   );
 }
 
-export default WatchedData;
+// export default WatchedData;
