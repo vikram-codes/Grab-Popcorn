@@ -1,7 +1,14 @@
 import { useState } from "react";
-import NavBar from "./components/NavBar";
-import ListBox from "./components/ListBox";
-import WatchedData from "./components/WatchedData";
+import NavBar, {
+  GrabPopcornLogo,
+  NumResults,
+  Search,
+} from "./components/NavBar";
+import ListBox, { MovieList } from "./components/ListBox";
+import WatchedData, {
+  WatchedSummary,
+  WatchedMoviesList,
+} from "./components/WatchedData";
 
 const tempMovieData = [
   {
@@ -56,10 +63,19 @@ export default function App() {
 
   return (
     <>
-      <NavBar movies={movies} />
+      <NavBar movies={movies}>
+        <GrabPopcornLogo />
+        <Search />
+        <NumResults movies={movies} />
+      </NavBar>
       <main className="main">
-        <ListBox movies={movies} />
-        <WatchedData watched={watched} />
+        <ListBox movies={movies}>
+          <MovieList movies={movies} />
+        </ListBox>
+        <WatchedData watched={watched}>
+          <WatchedSummary watched={watched} />
+          <WatchedMoviesList watched={watched} />
+        </WatchedData>
       </main>
     </>
   );

@@ -3,7 +3,7 @@ import { useState } from "react";
 const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
-function WatchedData({ watched }) {
+function WatchedData({ children }) {
   const [isOpen2, setIsOpen2] = useState(true);
 
   return (
@@ -15,18 +15,13 @@ function WatchedData({ watched }) {
         >
           {isOpen2 ? "–" : "+"}
         </button>
-        {isOpen2 && (
-          <>
-            <WatchedSummary watched={watched} />
-            <WatchedMoviesList watched={watched} />
-          </>
-        )}
+        {isOpen2 && <>{children}</>}
       </div>
     </>
   );
 }
 
-function WatchedSummary({ watched }) {
+export function WatchedSummary({ watched }) {
   const avgImdbRating = average(watched.map((movie) => movie.imdbRating));
   const avgUserRating = average(watched.map((movie) => movie.userRating));
   const avgRuntime = average(watched.map((movie) => movie.runtime));
@@ -57,7 +52,7 @@ function WatchedSummary({ watched }) {
   );
 }
 
-function WatchedMoviesList({ watched }) {
+export function WatchedMoviesList({ watched }) {
   return (
     <>
       <ul className="list">

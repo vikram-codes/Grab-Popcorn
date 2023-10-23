@@ -1,18 +1,14 @@
 import { useState } from "react";
 
-function NavBar({ movies }) {
+function NavBar({ children }) {
   return (
     <>
-      <nav className="nav-bar">
-        <GrabPopcornLogo />
-        <Search />
-        <NumResults movies={movies} />
-      </nav>
+      <nav className="nav-bar">{children}</nav>
     </>
   );
 }
 
-function GrabPopcornLogo() {
+export function GrabPopcornLogo() {
   return (
     <>
       <div className="logo">
@@ -23,7 +19,7 @@ function GrabPopcornLogo() {
   );
 }
 
-function Search() {
+export function Search() {
   const [query, setQuery] = useState("");
 
   return (
@@ -39,7 +35,7 @@ function Search() {
   );
 }
 
-function NumResults({ movies }) {
+export function NumResults({ movies }) {
   return (
     <>
       <p className="num-results">
