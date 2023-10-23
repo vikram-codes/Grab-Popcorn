@@ -51,11 +51,13 @@ const tempWatchedData = [
 ];
 
 export default function App() {
+  const [movies, setMovies] = useState(tempMovieData);
+
   return (
     <>
-      <NavBar tempMovieData={tempMovieData} />
+      <NavBar movies={movies} />
       <main className="main">
-        <ListBox tempMovieData={tempMovieData} />
+        <ListBox movies={movies} />
         <WatchedData tempWatchedData={tempWatchedData} />
       </main>
     </>

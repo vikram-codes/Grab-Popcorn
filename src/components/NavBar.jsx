@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-function NavBar({ tempMovieData }) {
+function NavBar({ movies }) {
   return (
     <>
       <nav className="nav-bar">
         <GrabPopcornLogo />
         <Search />
-        <NumResults tempMovieData={tempMovieData} />
+        <NumResults movies={movies} />
       </nav>
     </>
   );
@@ -39,11 +39,11 @@ function Search() {
   );
 }
 
-function NumResults({ tempMovieData }) {
+function NumResults({ movies }) {
   return (
     <>
       <p className="num-results">
-        Found <strong>{tempMovieData.length}</strong> results
+        Found <strong>{movies.length}</strong> results
       </p>
     </>
   );
