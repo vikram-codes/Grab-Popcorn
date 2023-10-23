@@ -52,13 +52,14 @@ const tempWatchedData = [
 
 export default function App() {
   const [movies, setMovies] = useState(tempMovieData);
+  const [watched, setWatched] = useState(tempWatchedData);
 
   return (
     <>
       <NavBar movies={movies} />
       <main className="main">
         <ListBox movies={movies} />
-        <WatchedData tempWatchedData={tempWatchedData} />
+        <WatchedData watched={watched} />
       </main>
     </>
   );
