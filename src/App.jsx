@@ -1,9 +1,7 @@
+/* eslint-disable react/prop-types */
+
 import { useState } from "react";
-import NavBar, {
-  GrabPopcornLogo,
-  NumResults,
-  Search,
-} from "./components/NavBar";
+import NavBar, { NumResults, Search } from "./components/NavBar";
 import Box, { MovieList } from "./components/Box";
 import { WatchedSummary, WatchedMoviesList } from "./components/WatchedData";
 
