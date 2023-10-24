@@ -64,10 +64,13 @@ export default function App() {
         <Search />
         <NumResults movies={movies} />
       </NavBar>
+
       <div className="main">
+        {/* <Box element={<MovieList movies={movies} />} /> */}
         <Box>
           <MovieList movies={movies} />
         </Box>
+
         <Box>
           <WatchedSummary watched={watched} />
           <WatchedMoviesList watched={watched} />
