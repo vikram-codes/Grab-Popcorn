@@ -24,6 +24,7 @@ export default function StarRating({
   className = "",
   messages = [],
   defaultRating = 0,
+  onSetRating,
 }) {
   const [starCount, setStarCount] = useState(defaultRating);
   const [tempStarCount, setTempStarCount] = useState(0);
@@ -41,6 +42,7 @@ export default function StarRating({
 
   function handleStarRating(rating) {
     setStarCount(() => rating);
+    onSetRating(rating);
   }
 
   function handleHoverIn(index) {
