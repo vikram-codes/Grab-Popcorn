@@ -15,16 +15,12 @@ const containerStyle = {
   gap: "16px",
 };
 
-const starContainerStyle = {
-  display: "flex",
-};
-
 import { useState } from "react";
 
 export default function StarRating({
   maxRating,
   color = "#fcc419",
-  size = "32",
+  size = "48",
   className = "",
   messages = [],
   defaultRating = 0,
@@ -32,16 +28,20 @@ export default function StarRating({
   const [starCount, setStarCount] = useState(defaultRating);
   const [tempStarCount, setTempStarCount] = useState(0);
 
-  function handleStarRating(rating) {
-    setStarCount(() => rating);
-  }
-
   const textStyle = {
     lineHeight: "1",
     margin: "0",
     color,
-    fontSize: `${size}px`,
+    fontSize: `${size / 1.5}px`,
   };
+
+  const starContainerStyle = {
+    display: "flex",
+  };
+
+  function handleStarRating(rating) {
+    setStarCount(() => rating);
+  }
 
   function handleHoverIn(index) {
     setTempStarCount(() => index);
@@ -71,17 +71,10 @@ export default function StarRating({
   );
 }
 
-function Star({
-  onClick,
-  full,
-  onHoverIn,
-  onHoverOut,
-  color = "#fcc419",
-  size = "24",
-}) {
+function Star({ onClick, full, onHoverIn, onHoverOut, color, size }) {
   const StarStyle = {
-    width: "48px",
-    height: "48px",
+    width: `${size}px`,
+    height: `${size}px`,
     display: "block",
     cursor: "pointer",
     fontSize: `${size}px`,
