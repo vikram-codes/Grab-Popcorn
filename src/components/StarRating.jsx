@@ -22,7 +22,7 @@ const starContainerStyle = {
 import { useState } from "react";
 
 export default function StarRating({ maxRating }) {
-  const [starCount, setStarCount] = useState(maxRating);
+  const [starCount, setStarCount] = useState(0);
   const [tempStarCount, setTempStarCount] = useState(0);
 
   function handleStarRating(rating) {
@@ -42,13 +42,11 @@ export default function StarRating({ maxRating }) {
             full={tempStarCount ? tempStarCount >= i + 1 : starCount >= i + 1}
             onClick={() => handleStarRating(i + 1)}
             onHoverIn={() => handleHoverIn(i + 1)}
-            onHoverOut={() => setTempStarCount(i + 1)}
+            onHoverOut={() => setTempStarCount(0)}
           />
         ))}
       </div>
-      <p>{tempStarCount}</p>
-      <br />
-      <p>{`You have Rated ${starCount} stars`}</p>
+      <p>{tempStarCount || starCount}</p>
     </div>
   );
 }
