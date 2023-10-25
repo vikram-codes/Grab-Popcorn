@@ -25,8 +25,11 @@ export default function StarRating({
   maxRating,
   color = "#fcc419",
   size = "32",
+  className = "",
+  messages = [],
+  defaultRating = 0,
 }) {
-  const [starCount, setStarCount] = useState(0);
+  const [starCount, setStarCount] = useState(defaultRating);
   const [tempStarCount, setTempStarCount] = useState(0);
 
   function handleStarRating(rating) {
@@ -45,7 +48,7 @@ export default function StarRating({
   }
 
   return (
-    <div style={containerStyle}>
+    <div style={containerStyle} className={className}>
       <div style={starContainerStyle}>
         {Array.from({ length: maxRating }, (_, i) => (
           <Star
@@ -54,21 +57,34 @@ export default function StarRating({
             onClick={() => handleStarRating(i + 1)}
             onHoverIn={() => handleHoverIn(i + 1)}
             onHoverOut={() => setTempStarCount(0)}
+            color={color}
+            size={size}
           />
         ))}
       </div>
-      <p style={textStyle}>{tempStarCount || starCount}</p>
+      <p style={textStyle}>
+        {messages.length === maxRating
+          ? messages[tempStarCount ? tempStarCount - 1 : starCount - 1]
+          : tempStarCount || starCount}
+      </p>
     </div>
   );
 }
 
-function Star({ onClick, full, onHoverIn, onHoverOut, color = "#fcc419" }) {
+function Star({
+  onClick,
+  full,
+  onHoverIn,
+  onHoverOut,
+  color = "#fcc419",
+  size = "24",
+}) {
   const StarStyle = {
     width: "48px",
     height: "48px",
     display: "block",
     cursor: "pointer",
-    color,
+    fontSize: `${size}px`,
   };
   return (
     <span
