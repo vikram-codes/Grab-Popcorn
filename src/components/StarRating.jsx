@@ -19,10 +19,11 @@ const starContainerStyle = {
   display: "flex",
 };
 
-import React, { useState } from "react";
+import { useState } from "react";
 
 export default function StarRating({ maxRating }) {
   const [starCount, setStarCount] = useState(maxRating);
+  const [tempStarCount, setTempStarCount] = useState(0);
 
   function handleStarRating(rating) {
     setStarCount(() => rating);
@@ -33,14 +34,14 @@ export default function StarRating({ maxRating }) {
       <div style={starContainerStyle}>
         {Array.from({ length: maxRating }, (_, i) => (
           <Star
-            role="button"
             key={i}
-            onClick={() => handleStarRating(i + 1)}
             full={starCount >= i + 1}
+            onClick={() => handleStarRating(i + 1)}
+            onHoverIn={() => setTempStarCount(i + 1)}
           />
         ))}
       </div>
-      <p>{starCount}</p>
+      <p>{tempStarCount}</p>
     </div>
   );
 }
@@ -52,9 +53,15 @@ const StarStyle = {
   cursor: "pointer",
 };
 
-function Star({ onClick, full }) {
+function Star({ onClick, full, onHoverIn, onHoverOut }) {
   return (
-    <span role="button" style={StarStyle} onClick={onClick}>
+    <span
+      role="button"
+      style={StarStyle}
+      onClick={onClick}
+      onMouseEnter={onHoverIn}
+      onMouseLeave={onHoverOut}
+    >
       {full ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
