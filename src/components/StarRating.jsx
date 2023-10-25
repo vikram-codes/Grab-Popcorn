@@ -29,19 +29,26 @@ export default function StarRating({ maxRating }) {
     setStarCount(() => rating);
   }
 
+  function handleHoverIn(index) {
+    setTempStarCount(() => index);
+  }
+
   return (
     <div style={containerStyle}>
       <div style={starContainerStyle}>
         {Array.from({ length: maxRating }, (_, i) => (
           <Star
             key={i}
-            full={starCount >= i + 1}
+            full={tempStarCount ? tempStarCount >= i + 1 : starCount >= i + 1}
             onClick={() => handleStarRating(i + 1)}
-            onHoverIn={() => setTempStarCount(i + 1)}
+            onHoverIn={() => handleHoverIn(i + 1)}
+            onHoverOut={() => setTempStarCount(i + 1)}
           />
         ))}
       </div>
       <p>{tempStarCount}</p>
+      <br />
+      <p>{`You have Rated ${starCount} stars`}</p>
     </div>
   );
 }
