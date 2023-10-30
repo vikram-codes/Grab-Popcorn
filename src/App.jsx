@@ -52,9 +52,13 @@ const tempWatchedData = [
   },
 ];
 
+const KEY = "6d352d05";
+
 export default function App() {
   const [movies, setMovies] = useState(tempMovieData);
   const [watched, setWatched] = useState(tempWatchedData);
+
+  fetch(`http://www.omdbapi.com/?apikey=${KEY}&`);
 
   return (
     <>
