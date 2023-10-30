@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NavBar, { NumResults, Search } from "./components/NavBar";
 import Box, { MovieList } from "./components/Box";
 import { WatchedSummary, WatchedMoviesList } from "./components/WatchedData";
@@ -59,9 +59,11 @@ export default function App() {
   const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState([]);
 
-  fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=interstellar&i=tt3896198`)
-    .then((res) => res.json())
-    .then((data) => console.log(data.Search));
+  useEffect(() => {
+    fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=interstellar&i=tt3896198`)
+      .then((res) => res.json())
+      .then((data) => setMovies(data.Search));
+  }, []);
 
   return (
     <>
