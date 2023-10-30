@@ -62,8 +62,8 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(function () {
-    setIsLoading(true);
     async function fetchMovies() {
+      setIsLoading(true);
       const res = await fetch(
         `http://www.omdbapi.com/?apikey=${KEY}&s=inception&i=tt3896198`
       );
