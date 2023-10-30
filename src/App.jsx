@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import NavBar, { NumResults, Search } from "./components/NavBar";
 import Box, { MovieList } from "./components/Box";
 import { WatchedSummary, WatchedMoviesList } from "./components/WatchedData";
+import Loader from "./components/Loader";
 
 // const tempMovieData = [
 //   {
@@ -58,8 +59,10 @@ const KEY = "6d352d05";
 export default function App() {
   const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(function () {
+    setIsLoading(true);
     async function fetchMovies() {
       const res = await fetch(
         `http://www.omdbapi.com/?apikey=${KEY}&s=inception&i=tt3896198`
@@ -67,8 +70,10 @@ export default function App() {
       const data = await res.json();
       setMovies(data.Search);
     }
+    setIsLoading(false);
     fetchMovies();
   }, []);
+  // console.log(movies);
 
   return (
     <>
@@ -79,9 +84,7 @@ export default function App() {
 
       <div className="main">
         {/* <Box element={<MovieList movies={movies} />} /> */}
-        <Box>
-          <MovieList movies={movies} />
-        </Box>
+        <Box>{isLoading ? <Loader /> : <MovieList movies={movies} />}</Box>
 
         <Box>
           <WatchedSummary watched={watched} />
