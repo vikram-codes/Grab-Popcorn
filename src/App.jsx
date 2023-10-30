@@ -52,7 +52,7 @@ const tempWatchedData = [
   },
 ];
 
-const KEY = "6d352d05";
+const KEY = "f84fc31d";
 
 export default function App() {
   const [movies, setMovies] = useState(tempMovieData);
