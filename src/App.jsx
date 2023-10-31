@@ -36,18 +36,29 @@ export default function App() {
   const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
   const query = "interstellar";
 
   useEffect(function () {
     async function fetchMovies() {
       setIsLoading(true);
-      const res = await fetch(
-        `http://www.omdbapi.com/?apikey=${KEY}&s=${query}&i=tt3896198`
-      );
-      const data = await res.json();
-      setMovies(data.Search);
-      setIsLoading(false);
+      try {
+        const res = await fetch(
+          `http://www.omdbapi.com/?apikey=${KEY}&s=${query}&i=tt3896198`
+        );
+
+        if (!res.ok)
+          throw new Error("❌ Something went wrong with fetching Movies");
+
+        const data = await res.json();
+        setMovies(data.Search);
+        setIsLoading(false);
+      } catch (err) {
+        console.error(err.message);
+        setError(err.message);
+      }
     }
+
     fetchMovies();
   }, []);
   // console.log(movies);
