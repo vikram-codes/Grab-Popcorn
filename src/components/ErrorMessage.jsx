@@ -4,7 +4,7 @@ import React from "react";
 function ErrorMessage({ message }) {
   return (
     <div className="error">
-      <span>❌</span>
+      <span>❌ </span>
       {message}
     </div>
   );
