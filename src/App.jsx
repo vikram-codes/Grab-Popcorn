@@ -73,7 +73,11 @@ export default function App() {
 
       <div className="main">
         {/* <Box element={<MovieList movies={movies} />} /> */}
-        <Box>{isLoading ? <Loader /> : <MovieList movies={movies} />}</Box>
+        <Box>
+          {/* <Box>{isLoading ? <Loader /> : <MovieList movies={movies} />}</Box> */}
+          {isLoading && !error && <MovieList movies={movies} />}
+          {error && <ErrorMessage message={error} />}
+        </Box>
 
         <Box>
           <WatchedSummary watched={watched} />
