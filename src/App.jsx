@@ -34,6 +34,7 @@ import ErrorMessage from "./components/ErrorMessage";
 const KEY = "6d352d05";
 
 export default function App() {
+  const [query, setQuery] = useState();
   const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -69,7 +70,7 @@ export default function App() {
   return (
     <>
       <NavBar>
-        <Search />
+        <Search query={query} setQuery={setQuery} />
         <NumResults movies={movies} />
       </NavBar>
 
