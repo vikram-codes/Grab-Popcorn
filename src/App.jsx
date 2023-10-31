@@ -67,7 +67,7 @@ export default function App() {
 
       if (query.length < 3) {
         setMovies([]);
-        setError("");
+        setError("Seach for Movies");
         return;
       }
 
