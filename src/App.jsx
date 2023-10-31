@@ -39,32 +39,36 @@ export default function App() {
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const tempquery = "Interstellar";
+  // const tempquery = "Interstellar";
 
-  useEffect(function () {
-    async function fetchMovies() {
-      setIsLoading(true);
-      try {
-        const res = await fetch(
-          `http://www.omdbapi.com/?apikey=${KEY}&s=${tempquery}&i=tt3896198`
-        );
+  useEffect(
+    function () {
+      async function fetchMovies() {
+        setIsLoading(true);
+        setError("");
+        try {
+          const res = await fetch(
+            `http://www.omdbapi.com/?apikey=${KEY}&s=${query}&i=tt3896198`
+          );
 
-        if (!res.ok)
-          throw new Error("❌ Something went wrong with fetching Movies");
+          if (!res.ok)
+            throw new Error("❌ Something went wrong with fetching Movies");
 
-        const data = await res.json();
-        if (data.Response === "False") throw new Error(data.Error);
+          const data = await res.json();
+          if (data.Response === "False") throw new Error("Movie not found!");
 
-        setMovies(data.Search);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setIsLoading(false);
+          setMovies(data.Search);
+        } catch (err) {
+          setError(err.message);
+        } finally {
+          setIsLoading(false);
+        }
       }
-    }
 
-    fetchMovies();
-  }, []);
+      fetchMovies();
+    },
+    [query]
+  );
   // console.log(movies);
 
   return (
