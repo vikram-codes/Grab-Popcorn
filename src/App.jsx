@@ -55,7 +55,7 @@ export default function App() {
             throw new Error("❌ Something went wrong with fetching Movies");
 
           const data = await res.json();
-          if (data.Response === "False") throw new Error("Movie not found!");
+          if (data.Response === "False") throw new Error("❌ Movie not found!");
 
           setMovies(data.Search);
         } catch (err) {
@@ -63,6 +63,12 @@ export default function App() {
         } finally {
           setIsLoading(false);
         }
+      }
+
+      if (query.length < 3) {
+        setMovies([]);
+        setError("");
+        return;
       }
 
       fetchMovies();
