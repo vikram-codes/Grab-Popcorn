@@ -38,14 +38,14 @@ export default function App() {
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const query = "asdassd";
+  const tempquery = "Interstellar";
 
   useEffect(function () {
     async function fetchMovies() {
       setIsLoading(true);
       try {
         const res = await fetch(
-          `http://www.omdbapi.com/?apikey=${KEY}&s=${query}&i=tt3896198`
+          `http://www.omdbapi.com/?apikey=${KEY}&s=${tempquery}&i=tt3896198`
         );
 
         if (!res.ok)
@@ -53,11 +53,9 @@ export default function App() {
 
         const data = await res.json();
         if (data.Response === "False") throw new Error(data.Error);
-        console.log(data);
 
         setMovies(data.Search);
       } catch (err) {
-        console.error(err.message);
         setError(err.message);
       } finally {
         setIsLoading(false);
