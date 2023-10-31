@@ -36,12 +36,13 @@ export default function App() {
   const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const query = "interstellar";
 
   useEffect(function () {
     async function fetchMovies() {
       setIsLoading(true);
       const res = await fetch(
-        `http://www.omdbapi.com/?apikey=${KEY}&s=interstellar&i=tt3896198`
+        `http://www.omdbapi.com/?apikey=${KEY}&s=${query}&i=tt3896198`
       );
       const data = await res.json();
       setMovies(data.Search);
