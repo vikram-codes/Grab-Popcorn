@@ -1,24 +1,24 @@
 /* eslint-disable react/prop-types */
-export default function MovieList({ movies }) {
+export default function MovieList({ movies, onSelectMovie }) {
   return (
     <>
       <ul className="list list-movies">
         {movies?.map((movie) => (
-          <Movie key={movie.imdbID} movie={movie} />
+          <Movie
+            key={movie.imdbID}
+            movie={movie}
+            onSelectMovie={onSelectMovie}
+          />
         ))}
       </ul>
     </>
   );
 }
 
-function handleSelectedMovie() {
-  setSelectedId(id);
-}
-
-function Movie({ movie, setSelectedId }) {
+function Movie({ movie, onSelectMovie }) {
   return (
     <>
-      <li onClick={() => handleSelectedMovie(setSelectedId)}>
+      <li onClick={() => onSelectMovie(movie.imdbID)}>
         <img src={movie.Poster} alt={`${movie.Title} poster`} />
         <h3>{movie.Title}</h3>
         <div>
