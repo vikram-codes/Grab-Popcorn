@@ -16,10 +16,13 @@ function MovieDetails({ selectedId, onCloseMovie }) {
 
   return (
     <>
-      <button className="btn-back" onClick={onCloseMovie}>
-        &larr;
-      </button>
-      <div className="details">{selectedId}</div>;
+      <header>
+        <button className="btn-back" onClick={onCloseMovie}>
+          &larr;
+        </button>
+        <img src={movie.poster} alt={`Poster of ${movie.poster}`} />
+        <div className="details">{selectedId}</div>;
+      </header>
     </>
   );
 }
