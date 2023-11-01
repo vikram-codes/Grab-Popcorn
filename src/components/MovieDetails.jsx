@@ -41,6 +41,7 @@ function MovieDetails({ selectedId, onCloseMovie }) {
             maxRating="10"
             color="orange"
             className="rating"
+            key={movie.imdbRating}
           />
           <p>
             <em>{movie.Plot}</em>
