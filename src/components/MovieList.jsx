@@ -11,10 +11,14 @@ export default function MovieList({ movies }) {
   );
 }
 
-function Movie({ movie }) {
+function handleSelectedMovie() {
+  setSelectedId(id);
+}
+
+function Movie({ movie, setSelectedId }) {
   return (
     <>
-      <li>
+      <li onClick={() => handleSelectedMovie(setSelectedId)}>
         <img src={movie.Poster} alt={`${movie.Title} poster`} />
         <h3>{movie.Title}</h3>
         <div>
