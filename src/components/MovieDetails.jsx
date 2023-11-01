@@ -36,7 +36,12 @@ function MovieDetails({ selectedId, onCloseMovie }) {
           </div>
         </header>
         <section>
-          <StarRating size="32" maxRating="10" color="orange" />
+          <StarRating
+            size="32"
+            maxRating="10"
+            color="orange"
+            className="rating"
+          />
           <p>
             <em>{movie.Plot}</em>
           </p>
