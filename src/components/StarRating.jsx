@@ -18,7 +18,7 @@ const containerStyle = {
 import { useState } from "react";
 
 export default function StarRating({
-  maxRating,
+  maxRating = "5",
   color = "#fcc419",
   size = "48",
   className = "",

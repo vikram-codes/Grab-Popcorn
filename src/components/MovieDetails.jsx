@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import StarRating from "./StarRating";
 import React, { useEffect, useState } from "react";
 
 function MovieDetails({ selectedId, onCloseMovie }) {
@@ -35,6 +36,7 @@ function MovieDetails({ selectedId, onCloseMovie }) {
           </div>
         </header>
         <section>
+          <StarRating size="32" maxRating="10" color="orange" />
           <p>
             <em>{movie.Plot}</em>
           </p>
