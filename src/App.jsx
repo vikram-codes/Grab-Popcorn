@@ -7,6 +7,7 @@ import { WatchedSummary, WatchedMoviesList } from "./components/WatchedData";
 import Loader from "./components/Loader";
 import ErrorMessage from "./components/ErrorMessage";
 import MovieList from "./components/MovieList";
+import MovieDetails from "./components/MovieDetails";
 
 // const tempWatchedData = [
 //   {
@@ -95,8 +96,14 @@ export default function App() {
         </Box>
 
         <Box>
-          <WatchedSummary watched={watched} />
-          <WatchedMoviesList watched={watched} />
+          {selectedId ? (
+            <MovieDetails selectedId={selectedId} />
+          ) : (
+            <>
+              <WatchedSummary watched={watched} />
+              <WatchedMoviesList watched={watched} />
+            </>
+          )}
         </Box>
       </div>
     </>
