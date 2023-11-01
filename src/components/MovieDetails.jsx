@@ -13,7 +13,7 @@ function MovieDetails({ selectedId, onCloseMovie }) {
       setMovie(data);
     }
     getMovieDetails();
-  }, []);
+  }, [selectedId]);
 
   return (
     <>
