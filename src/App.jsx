@@ -2,10 +2,11 @@
 
 import { useState, useEffect } from "react";
 import NavBar, { NumResults, Search } from "./components/NavBar";
-import Box, { MovieList } from "./components/Box";
+import Box from "./components/Box";
 import { WatchedSummary, WatchedMoviesList } from "./components/WatchedData";
 import Loader from "./components/Loader";
 import ErrorMessage from "./components/ErrorMessage";
+import MovieList from "./components/MovieList";
 
 // const tempWatchedData = [
 //   {
