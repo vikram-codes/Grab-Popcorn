@@ -39,7 +39,6 @@ export default function App() {
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  // const tempquery = "Interstellar";
 
   useEffect(
     function () {
