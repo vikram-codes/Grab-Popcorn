@@ -3,7 +3,7 @@ import Loader from "./Loader";
 import StarRating from "./StarRating";
 import React, { useEffect, useState } from "react";
 
-function MovieDetails({ selectedId, onCloseMovie }) {
+function MovieDetails({ selectedId, onCloseMovie, onAddWatched }) {
   const [isLoading, setIsLoading] = useState(false);
   const [movie, setMovie] = useState({});
   useEffect(() => {
@@ -18,6 +18,33 @@ function MovieDetails({ selectedId, onCloseMovie }) {
     }
     getMovieDetails();
   }, [selectedId]);
+
+  const {
+    Title: title,
+    Year: year,
+    Poster: poster,
+    Runtime: runtime,
+    Released: released,
+    imdbRating,
+    Director: director,
+    Genre: genre,
+    Actors: actors,
+    Plot: plot,
+  } = movie;
+
+  function handleAdd(movie) {
+    const newWatchedMovie = {
+      imdbID: selectedId,
+      title,
+      poster,
+      year,
+      imdbRating: Number(imdbRating),
+      runtime: Number(runtime.split(" ").at(0)),
+      released,
+      genre,
+    };
+    onAddWatched(newWatchedMovie);
+  }
 
   return (
     <>
@@ -50,7 +77,9 @@ function MovieDetails({ selectedId, onCloseMovie }) {
               className="rating"
               key={movie.imdbRating}
             />
-            <button className="btn-add">+ Add to List</button>
+            <button className="btn-add" onClick={() => handleAdd(movie)}>
+              + Add to List
+            </button>
             <p>
               <em>{movie.Plot}</em>
             </p>
