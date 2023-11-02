@@ -50,6 +50,7 @@ function MovieDetails({ selectedId, onCloseMovie }) {
               className="rating"
               key={movie.imdbRating}
             />
+            <button className="btn-add">+ Add to List</button>
             <p>
               <em>{movie.Plot}</em>
             </p>
