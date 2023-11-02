@@ -32,7 +32,7 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched }) {
     Plot: plot,
   } = movie;
 
-  function handleAdd(movie) {
+  function handleAdd() {
     const newWatchedMovie = {
       imdbID: selectedId,
       title,
@@ -77,7 +77,7 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched }) {
               className="rating"
               key={movie.imdbRating}
             />
-            <button className="btn-add" onClick={() => handleAdd(movie)}>
+            <button className="btn-add" onClick={handleAdd}>
               + Add to List
             </button>
             <p>
