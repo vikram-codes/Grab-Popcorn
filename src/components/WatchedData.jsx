@@ -60,7 +60,6 @@ export function WatchedMoviesList({ watched }) {
       <ul className="list">
         {watched.map((movie) => (
           <>
-            <button className="btn-delete">X</button>
             <WatchedMovie key={movie.imdbID} movie={movie} />
           </>
         ))}
@@ -89,6 +88,7 @@ function WatchedMovie({ movie }) {
             <span>{movie.runtime} min</span>
           </p>
         </div>
+        <button className="btn-delete">X</button>
       </li>
     </>
   );
