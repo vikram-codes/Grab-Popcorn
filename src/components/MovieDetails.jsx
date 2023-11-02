@@ -44,6 +44,7 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched }) {
       runtime: Number(runtime.split(" ").at(0)),
       released,
       genre,
+      userRating,
     };
     onAddWatched(newWatchedMovie);
   }
