@@ -6,6 +6,8 @@ import React, { useEffect, useState } from "react";
 function MovieDetails({ selectedId, onCloseMovie, onAddWatched }) {
   const [isLoading, setIsLoading] = useState(false);
   const [movie, setMovie] = useState({});
+  const [userRating, setUserRating] = useState("");
+
   useEffect(() => {
     async function getMovieDetails() {
       setIsLoading(true);
@@ -76,10 +78,15 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched }) {
               color="orange"
               className="rating"
               key={movie.imdbRating}
+              onSetRating={setUserRating}
             />
-            <button className="btn-add" onClick={handleAdd}>
-              + Add to List
-            </button>
+            {userRating > 0 ? (
+              <button className="btn-add" onClick={handleAdd}>
+                + Add to List
+              </button>
+            ) : (
+              ""
+            )}
             <p>
               <em>{movie.Plot}</em>
             </p>
