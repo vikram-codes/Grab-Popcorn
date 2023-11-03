@@ -59,8 +59,9 @@ export default function App() {
   }
 
   function handleDeleteWatched() {
-    console.log("deleting watched");
-    setVisible(false);
+    const newWatched = watched.filter((item) => item.selectedId !== selectedId);
+    setWatched(newWatched);
+    console.log("deletingWatched");
   }
 
   useEffect(
