@@ -42,6 +42,7 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
   const [error, setError] = useState("");
+  const [visible, setVisible] = useState(true);
 
   function handleSelectedMovie(id) {
     setSelectedId((selectedId) => (id === selectedId ? null : id));
@@ -57,7 +58,10 @@ export default function App() {
     console.log(movie);
   }
 
-  function handleDeleteWatched() {}
+  function handleDeleteWatched() {
+    console.log("deleting watched");
+    setVisible(false);
+  }
 
   useEffect(
     function () {
