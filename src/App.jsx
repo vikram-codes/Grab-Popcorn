@@ -57,6 +57,8 @@ export default function App() {
     console.log(movie);
   }
 
+  function handleDeleteWatched() {}
+
   useEffect(
     function () {
       async function fetchMovies() {
@@ -122,7 +124,10 @@ export default function App() {
           ) : (
             <>
               <WatchedSummary watched={watched} />
-              <WatchedMoviesList watched={watched} />
+              <WatchedMoviesList
+                watched={watched}
+                onDeleteWatched={handleDeleteWatched}
+              />
             </>
           )}
         </Box>
