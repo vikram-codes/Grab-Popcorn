@@ -100,7 +100,9 @@ function WatchedMovie({ movie }) {
             <span>{movie.runtime} min</span>
           </p>
         </div>
-        <button className="btn-delete">X</button>
+        <button className="btn-delete" onClick={handleDelete}>
+          X
+        </button>
       </li>
     </>
   );
