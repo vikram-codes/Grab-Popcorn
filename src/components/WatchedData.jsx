@@ -80,7 +80,7 @@ export function WatchedMoviesList({ watched }) {
   );
 }
 
-function WatchedMovie({ movie }) {
+function WatchedMovie({ movie, onDeleteWatched }) {
   return (
     <>
       <li>
@@ -100,7 +100,7 @@ function WatchedMovie({ movie }) {
             <span>{movie.runtime} min</span>
           </p>
         </div>
-        <button className="btn-delete" onClick={handleDelete}>
+        <button className="btn-delete" onClick={onDeleteWatched}>
           X
         </button>
       </li>
