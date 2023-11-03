@@ -23,6 +23,8 @@ const average = (arr) =>
 //   );
 // }
 
+function handleDelete() {}
+
 export function WatchedSummary({ watched }) {
   const avgImdbRating = average(watched.map((movie) => movie.imdbRating));
   const avgUserRating = average(watched.map((movie) => movie.userRating));
