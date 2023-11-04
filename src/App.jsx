@@ -93,7 +93,7 @@ export default function App() {
         setError("Seach for Movies");
         return;
       }
-
+      handleCloseMovie();
       fetchMovies();
       return function () {
         controller.abort();
