@@ -11,6 +11,18 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
   const movieRating = watched.find(
     (movie) => movie.imdbID === selectedId
   )?.userRating;
+  const {
+    Title: title,
+    Year: year,
+    Poster: poster,
+    Runtime: runtime,
+    Released: released,
+    imdbRating,
+    Director: director,
+    Genre: genre,
+    Actors: actors,
+    Plot: plot,
+  } = movie;
 
   useEffect(() => {
     async function getMovieDetails() {
@@ -25,18 +37,9 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
     getMovieDetails();
   }, [selectedId]);
 
-  const {
-    Title: title,
-    Year: year,
-    Poster: poster,
-    Runtime: runtime,
-    Released: released,
-    imdbRating,
-    Director: director,
-    Genre: genre,
-    Actors: actors,
-    Plot: plot,
-  } = movie;
+  useEffect(() => {
+    document.title = `Movie: ${title}`;
+  }, [title]);
 
   function handleAdd() {
     const newWatchedMovie = {
