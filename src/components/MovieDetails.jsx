@@ -39,7 +39,11 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
 
   useEffect(() => {
     document.title = `Movie: ${title}`;
-  }, [title]);
+
+    return function () {
+      document.title = "Grab Popcorn";
+    };
+  }, [title, selectedId]);
 
   function handleAdd() {
     const newWatchedMovie = {
