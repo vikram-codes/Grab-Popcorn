@@ -42,7 +42,6 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
   const [error, setError] = useState("");
-  const [visible, setVisible] = useState(true);
 
   function handleSelectedMovie(id) {
     setSelectedId((selectedId) => (id === selectedId ? null : id));
@@ -53,16 +52,11 @@ export default function App() {
   }
 
   function handleAddWatched(movie) {
-    if (watched.imdbID !== movie.imdbID)
-      setWatched((watched) => [...watched, movie]);
+    setWatched((watched) => [...watched, movie]);
     setSelectedId(null);
   }
 
-  function handleDeleteWatched(id) {
-    const newWatched = watched.filter((item) => console.log(item.imdbID));
-    setWatched(newWatched);
-    console.log(watched.idmbID);
-  }
+  function handleDeleteWatched() {}
 
   useEffect(
     function () {
@@ -125,6 +119,7 @@ export default function App() {
               selectedId={selectedId}
               onCloseMovie={handleCloseMovie}
               onAddWatched={handleAddWatched}
+              watched={watched}
             />
           ) : (
             <>
