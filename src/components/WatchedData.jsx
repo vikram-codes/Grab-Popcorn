@@ -38,25 +38,15 @@ export function WatchedSummary({ watched }) {
           </p>
           <p>
             <span>⭐️</span>
-            <span>
-              {avgImdbRating / 1 === 0
-                ? Math.trunc(avgImdbRating)
-                : avgImdbRating.toFixed(1)}
-            </span>
+            <span>{avgImdbRating.toFixed(1)}</span>
           </p>
           <p>
             <span>🌟</span>
-            <span>
-              {avgUserRating / 1 === 0
-                ? avgUserRating
-                : avgUserRating.toFixed(1)}
-            </span>
+            <span>{avgUserRating.toFixed(1)}</span>
           </p>
           <p>
             <span>⏳</span>
-            <span>
-              {avgRuntime / 1 === 0 ? avgRuntime : avgRuntime.toFixed(1)}
-            </span>
+            <span>{avgRuntime.toFixed(1)}</span>
           </p>
         </div>
       </div>

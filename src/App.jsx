@@ -55,14 +55,14 @@ export default function App() {
   function handleAddWatched(movie) {
     setWatched((watched) => [...watched, movie]);
     setSelectedId(null);
-    console.log(movie);
   }
 
-  function handleDeleteWatched() {
-    const newWatched = watched.filter((item) => item.selectedId !== selectedId);
+  function handleDeleteWatched(id) {
+    const newWatched = watched.filter((item) => item.id !== id);
     setWatched(newWatched);
-    console.log("deletingWatched");
   }
+
+  console.log(watched);
 
   useEffect(
     function () {
@@ -132,6 +132,7 @@ export default function App() {
               <WatchedMoviesList
                 watched={watched}
                 onDeleteWatched={handleDeleteWatched}
+                key={selectedId}
               />
             </>
           )}
