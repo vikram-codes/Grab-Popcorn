@@ -8,6 +8,9 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
   const [movie, setMovie] = useState({});
   const [userRating, setUserRating] = useState("");
   const isWatched = watched.map((movie) => movie.imdbID).includes(selectedId);
+  const movieRating = watched.find(
+    (movie) => movie.imdbID === selectedId
+  )?.userRating;
 
   useEffect(() => {
     async function getMovieDetails() {
@@ -94,7 +97,7 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
                   )}
                 </>
               ) : (
-                <p>You already rated this movie</p>
+                <p>You already rated this movie with {movieRating} ⭐️</p>
               )}
             </div>
             <p>
