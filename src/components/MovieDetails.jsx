@@ -45,6 +45,14 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
     };
   }, [title, selectedId]);
 
+  useEffect(() => {
+    document.addEventListener("keydown", function (e) {
+      if (e.code === "Escape") {
+        onCloseMovie();
+      }
+    });
+  }, [onCloseMovie]);
+
   function handleAdd() {
     const newWatchedMovie = {
       imdbID: selectedId,
