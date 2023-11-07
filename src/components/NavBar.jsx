@@ -29,6 +29,12 @@ export function Search({ query, setQuery }) {
 
   useEffect(() => {
     search.current.focus();
+    function callback(e) {
+      if (e.code === "Enter") {
+        search.current.focus();
+      }
+    }
+    document.addEventListener("keydown", callback);
   }, []);
   return (
     <>
