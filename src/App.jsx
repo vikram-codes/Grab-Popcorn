@@ -101,7 +101,6 @@ export default function App() {
     },
     [query]
   );
-  console.log(movies);
 
   return (
     <>
