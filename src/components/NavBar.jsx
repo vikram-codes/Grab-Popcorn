@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function NavBar({ children }) {
   return (
@@ -25,6 +25,11 @@ export function GrabPopcornLogo() {
 }
 
 export function Search({ query, setQuery }) {
+  const search = useRef(null);
+
+  useEffect(() => {
+    search.current.focus();
+  }, []);
   return (
     <>
       <input
@@ -33,6 +38,7 @@ export function Search({ query, setQuery }) {
         placeholder="Search movies here..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
+        ref={search}
       />
     </>
   );
